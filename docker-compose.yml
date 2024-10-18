@@ -1,0 +1,17 @@
+version: '2.4'
+networks:
+   cenix_network:
+      driver: bridge
+services:
+   cenix:
+      container_name: cenix_test
+      build:
+         context: ./
+         dockerfile: ./Dockerfile
+      ports:
+         - '3015:3000'
+      volumes:
+         - ./:/app
+      tty: true
+      networks:
+         - cenix_network
